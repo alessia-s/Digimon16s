@@ -12,7 +12,7 @@ We developed a software that is able to identify the 16s genes inside a referenc
 
 For the software to work are necessary: 
 
-HMMER (v.3.3.3) that was used for identify the 16s sequence; 
+HMMER (v.3.3.3) that was used for identify the 16s sequences; 
 
 Python (v.3.8) to execute the software; 
 
