@@ -11,8 +11,8 @@ The purpose of this program is to check for the presence of a 16s gene in bacter
 This program comes with two hmm models for the 16s gene, one for Archeal genomes (arc.ssu.rnammer.hmm) and one for Bacterial genomes (bac.ssu.rnammer.hmm). It is possible to work with a user-provided hmm model, but the program as not been tested for this.
 
 This program has been designed to work with a specific folder structure (see example directory structure.zip): 
-- .fasta/.fna/.fa files in a subfolder to the current Working Directory. You are to specify the name of the folder as an argument when launching the program from command line.
-- The .hmm file for hnmmer has to be in the same directory as the program.
+- .fasta/.fna/.fa files in a **subfolder** to the current Working Directory. You are to specify the name of the folder as an argument when launching the program from command line.
+- The .hmm file for hnmmer has to be in the **same** directory as the program.
 
 ### Programs
 - HMMER 3.3 (http://hmmer.org/)
@@ -33,9 +33,9 @@ When launching the program, arguments are used to specify both our program’s p
 	`-q <hmm_filename>` or `--query <hmm_filename>`: nhmmer will use your specified hmm file.
     
 ##### OPTIONAL arguments
-- minimum 16s sequence length: tell the program to export 16s gene sequences only if longer than this number of bases. This command only affects retrieval of the 16s gene sequence by our program and the ensuing multifasta file and info file. It does not affect nhmmer hits and nhmmer output and log files. Defaults to 0\
+- minimum 16s sequence length: tell the program to export 16s gene sequences only if longer than this number of bases. This command only affects retrieval of the 16s gene sequence by our program and the ensuing multifasta file and info file. It does not affect nhmmer hits and nhmmer output and log files. Defaults to **0**\
 `-l <number>` or `--length <number>`
-- E-value: allows you to run the nhmmer commands with this specified E-value. Must be integer or float with “.” as decimal separator. Defaults to 0.0001\
+- E-value: allows you to run the nhmmer commands with this specified E-value. Must be integer or float with “.” as decimal separator. Defaults to **0.0001**\
 `-e <e-value>` or `--evalue <e-value>`
 	
 	
