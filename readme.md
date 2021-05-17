@@ -28,8 +28,8 @@ When launching the program, arguments are used to specify both our program’s p
 - genomes folder: you must point to the folder where the microbial genomes are located. These genomes will be searched by nhmmer and our program to retrieve their 16s genes. (genomes folder must be a subfolder to the program’s working directory).\
 `-f <folder_name>` or `--folder <folder_name>`.
 - Query hmm: you can indicate which .hmm you want nhmmer to use as query when looking for the 16s genes. You can use one of the provided hmm files or one of your pleasing.\
-	`-q <b/ba/bac/bacteria>` or `--query <b/ba/bac/bacteria>`: nhmmer will use “bac.ssu.rnammer.hmm” file (indicated for bacterial genomes)\
-	`-q <a/ar/arc/archaea>`or `--query <a/ar/arc/archaea>`: nhmmer will use “arc.ssu.rnammer.hmm” file (indicated for archaeal genomes)\
+	`-q b` or `--query b`: nhmmer will use “bac.ssu.rnammer.hmm” file (indicated for bacterial genomes). In place of `b`, you can also use one of the following notations: ba, bac, bacteria.\
+	`-q a` or `--query a`: nhmmer will use “arc.ssu.rnammer.hmm” file (indicated for archaeal genomes). In place of `a`, you can also use one of the following: a, ar, archaea.\
 	`-q <hmm_filename>` or `--query <hmm_filename>`: nhmmer will use your specified hmm file.
     
 ##### OPTIONAL arguments
