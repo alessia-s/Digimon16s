@@ -1,3 +1,7 @@
+*This code was developed as part of a project carried out during the course of Microbial Metagenomics 
+(Molecular Biology master degree) at the University of Padova. 
+The project was supervised by Prof. Stefano Campanaro and Dr. Arianna Basile.*
+
 ## Introduction
 The purpose of this program is to check for the presence of a 16s gene in bacterial/archaeal genomes, ideally Metagenome-Assembled Genomes. It does so in two steps:
 1. search for the 16s gene in the genomes by automating an nhmmer search
