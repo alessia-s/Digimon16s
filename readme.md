@@ -8,11 +8,12 @@ The purpose of this program is to check for the presence of a 16s gene in bacter
 2. use the nhmmer hits to extract the identified 16s sequence from the genomes.
 
 ## Requirements
-This program comes with two hmm models for the 16s gene, one for Archeal genomes (arc.ssu.rnammer.hmm) and one for Bacterial genomes (bac.ssu.rnammer.hmm). It is possible to work with a user-provided hmm model, but the program as not been tested for this.
-
 This program has been designed to work with a specific folder structure (see example directory structure.zip): 
 - .fasta/.fna/.fa files in a **subfolder** to the current Working Directory. You are to specify the name of the folder as an argument when launching the program from command line.
-- The .hmm file for hnmmer has to be in the **same** directory as the program.
+- The .hmm file for nhmmer has to be in the **same** directory as the program.
+
+### Files
+This program comes with two hmm models for the 16s gene, one for Archeal genomes (arc.ssu.rnammer.hmm) and one for Bacterial genomes (bac.ssu.rnammer.hmm). It is possible to work with a user-provided hmm model, but the program as not been tested for this.
 
 ### Programs
 - HMMER 3.3 (http://hmmer.org/)
@@ -40,3 +41,7 @@ When launching the program, arguments are used to specify both our program’s p
 	
 	
 ## Output
+
+
+## Testing setup
+The program was tested with a set of 
