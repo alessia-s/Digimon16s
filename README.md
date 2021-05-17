@@ -19,3 +19,12 @@ Python (v.3.8) to execute the software;
 Query sequences (since HMMER works also with querys and not only profiles) provided by an hidden markov models(HMM) one for the bacteria called:bac.ssu.rnammer.hmm and one for the archaea called:arc.ssu.rnammer.hmm and were obtained from RNAmmer "http://www.cbs.dtu.dk/services/RNAmmer/"
 
 As a test, to verify if the program was working correctly, we used the 1600 metagenome-assembled genomes originating from multiple anaereobic digesters, imported as FASTA files.
+
+
+
+### Output files 
+The software will generate 4 file:
+- My_16S_genes_(..).Fasta: it is a multi-fasta file containing all the valid 16S sequences obtained. Each sequence is identified by the code of the scaffold in which has been found and the name of the genome;
+- My_16S_genes_info_(..).txt: it is a tabular file in which are saved the number of 16S genes found per genomes, the length of the sequences, the start and end position of the alignment; 
+- nhmmer_log_(..).txt: file containing all the printed out information by the nhmmer software;
+- nhmmer_output_(..).txt: file containing information of the alignment performed by nhmmer, from which the software will save the alignment positions. 
