@@ -10,7 +10,7 @@ The purpose of this program is to check for the presence of a 16s gene in bacter
 ## Requirements
 This program comes with two hmm models for the 16s gene, one for Archeal genomes (arc.ssu.rnammer.hmm) and one for Bacterial genomes (bac.ssu.rnammer.hmm). It is possible to work with a user-provided hmm model, but the program as not been tested for this.
 
-This program has been designed to work with a specific folder structure (see example directory): 
+This program has been designed to work with a specific folder structure (see example directory structure.zip): 
 - .fasta/.fna/.fa files in a subfolder to the current Working Directory. You are to specify the name of the folder as an argument when launching the program from command line.
 - The .hmm file for hnmmer has to be in the same directory as the program.
 
@@ -25,7 +25,7 @@ To launch the program, open a terminal session in the directory where the progra
 ### Arguments
 When launching the program, arguments are used to specify both our program’s parameters, and to be passed to the automated nhmmer command.
 ##### MANDATORY arguments
-- genomes folder: you must point to the folder where the microbial genomes are located. These genomes will be searched by nhmmer and our program to retrieve their 16s genes. (genomes folder must be a subfolder to the program’s working directory).\
+- genomes folder: you must point to the folder where the microbial genomes are located. These genomes will be searched by nhmmer and our program to retrieve their 16s genes. Genomes folder must be a subfolder to the program’s working directory.\
 `-f <folder_name>` or `--folder <folder_name>`.
 - Query hmm: you can indicate which .hmm you want nhmmer to use as query when looking for the 16s genes. You can use one of the provided hmm files or one of your pleasing.\
 	`-q b` or `--query b`: nhmmer will use “bac.ssu.rnammer.hmm” file (indicated for bacterial genomes). In place of `b`, you can also use one of the following notations: ba, bac, bacteria.\
