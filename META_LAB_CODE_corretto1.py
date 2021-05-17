@@ -177,14 +177,7 @@ def get_the_info(start, end, genome_name, info, target):
 
     
     alignment = target + '\t' + str(abs(int(end)-int(start))) + '\t' + start + '\t'+ end    
-    
-   # if len(info) == 0:
-   #     head = genome_name +'\n'+ alignment +'\n'
-   # else: 
-   #     s = re.search(genome_name, ''.join(info))
-   #     if s is not None:
-   #         head = alignment + '\n'
-   #     else:
+   
     head = genome_name +'\n'+ alignment +'\n'  
 
     info = info.append(head)
