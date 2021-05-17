@@ -10,22 +10,29 @@ This program has been designed to work with a specific folder structure (see exa
 - .fasta/.fna/.fa files in a subfolder to the current Working Directory. You are to specify the name of the folder as an argument when launching the program from command line.
 - The .hmm file for hnmmer has to be in the same directory as the program.
 
+### Programs
+- HMMER (http://hmmer.org/)
+- Python 3.8+
+
 ## Command line instructions
 ### Launching the program
 The program is provided as a .py file. It is necessary to allow the file to run as a program by setting the appropriate permission in file properties.
 To launch the program, open a terminal session in the directory where the program is located and enter the command “./<nome del programma>”.
 ### Arguments
 When launching the program, arguments are used to specify both our program’s parameters, and to be passed to the automated nhmmer command.
-	MANDATORY arguments
-- genomes folder: you must point to the folder where the microbial genomes are located. These genomes will be searched by nhmmer and our program to retrieve their 16s genes. (genomes folder must be a subfolder to the program’s working directory).
+##### MANDATORY arguments
+- genomes folder: you must point to the folder where the microbial genomes are located. These genomes will be searched by nhmmer and our program to retrieve their 16s genes. (genomes folder must be a subfolder to the program’s working directory).\
 “-f <folder_name>” or “--folder <folder_name>”.
-- Query hmm: you can indicate which .hmm you want nhmmer to use as query when looking for the 16s genes. You can use one of the provided hmm files or one of your pleasing.
-“-q <b/ba/bac/bacteria>” ; “--query <b/ba/bac/bacteria>”: nhmmer will use “bac.ssu.rnammer.hmm” file (indicated for bacterial genomes);
-“-q <a/ar/arc/archaea>”; “--query <a/ar/arc/archaea>”: nhmmer will use “arc.ssu.rnammer.hmm” file (indicated for archaeal genomes).
-“-q <hmm_filename>”; “--query <hmm_filename>”: nhmmer will use your specified hmm file.
+- Query hmm: you can indicate which .hmm you want nhmmer to use as query when looking for the 16s genes. You can use one of the provided hmm files or one of your pleasing.\
+	“-q <b/ba/bac/bacteria>” ; “--query <b/ba/bac/bacteria>”: nhmmer will use “bac.ssu.rnammer.hmm” file (indicated for bacterial genomes);\
+	“-q <a/ar/arc/archaea>”; “--query <a/ar/arc/archaea>”: nhmmer will use “arc.ssu.rnammer.hmm” file (indicated for archaeal genomes).\
+	“-q <hmm_filename>”; “--query <hmm_filename>”: nhmmer will use your specified hmm file.
     
-OPTIONAL arguments:
-- minimum 16s sequence length: tell the program to export 16s gene sequences only if longer than this number of bases. This command only affects retrieval of the 16s gene sequence by our program and the ensuing multifasta file and info file. It does not affect nhmmer hits and nhmmer output and log files. Defaults to 0.
-“-l <integer>”; “--length <integer>”.
-- E-value: allows you to run the nhmmer commands with this specified E-value. Must be integer or float with “.” as decimal separator. Defaults to 0.0001.
+##### OPTIONAL arguments:
+- minimum 16s sequence length: tell the program to export 16s gene sequences only if longer than this number of bases. This command only affects retrieval of the 16s gene sequence by our program and the ensuing multifasta file and info file. It does not affect nhmmer hits and nhmmer output and log files. Defaults to 0.\
+“-l <number>”; “--length <number>”.
+- E-value: allows you to run the nhmmer commands with this specified E-value. Must be integer or float with “.” as decimal separator. Defaults to 0.0001.\
 “-e <e-value>”; “--evalue <e-value>”.
+	
+	
+## Output
