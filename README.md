@@ -24,7 +24,7 @@ As a test, to verify if the program was working correctly, we used the 1600 meta
 
 ### Output files 
 The software will generate 4 file:
-- My_16S_genes_(< folder >_< query >).Fasta: it is a multi-fasta file containing all the valid 16S sequences obtained. Each sequence is identified by the code of the scaffold in which has been found and the name of the genome;
+- My_16S_genes_< folder >_<query>.Fasta: it is a multi-fasta file containing all the valid 16S sequences obtained. Each sequence is identified by the code of the scaffold in which has been found and the name of the genome;
 - My_16S_genes_info_(< folder >_ < query >).txt: it is a tabular file in which are saved the number of 16S genes found per genomes, the length of the sequences, the start and end position of the alignment; 
 - nhmmer_log_(< folder >_< query >).txt: file containing all the printed out information by the nhmmer software;
 - nhmmer_output_(< folder >_< query >).txt: file containing information of the alignment performed by nhmmer, from which the software will save the alignment positions. 
