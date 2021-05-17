@@ -28,7 +28,7 @@ When launching the program, arguments are used to specify both our program’s p
 	“-q <a/ar/arc/archaea>”; “--query <a/ar/arc/archaea>”: nhmmer will use “arc.ssu.rnammer.hmm” file (indicated for archaeal genomes).\
 	“-q <hmm_filename>”; “--query <hmm_filename>”: nhmmer will use your specified hmm file.
     
-##### OPTIONAL arguments:
+##### OPTIONAL arguments
 - minimum 16s sequence length: tell the program to export 16s gene sequences only if longer than this number of bases. This command only affects retrieval of the 16s gene sequence by our program and the ensuing multifasta file and info file. It does not affect nhmmer hits and nhmmer output and log files. Defaults to 0.\
 “-l <number>”; “--length <number>”.
 - E-value: allows you to run the nhmmer commands with this specified E-value. Must be integer or float with “.” as decimal separator. Defaults to 0.0001.\
