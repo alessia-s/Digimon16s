@@ -1,9 +1,16 @@
+# DIGIMON16s
 *This code was developed as part of a project carried out during the course of Microbial Metagenomics 
 (Molecular Biology master degree) at the University of Padova. 
 The project was supervised by Prof. Stefano Campanaro and Dr. Arianna Basile.*
 
-## Introduction
-The purpose of this program is to check for the presence of a 16s gene in bacterial/archaeal genomes, ideally Metagenome-Assembled Genomes. It does so in two steps:
+## IDentIfication of 16s Genes In MicrObial geNomes
+
+The taxonomic assignment is one of the fundamental steps for understanding the microbial community.
+The 16s genes are highly conserved across species of Archea and Bacteria but this genes also contain nine hypervariable regions that can provide species-specific signature sequence useful for their identification.
+Since much more species are isolated the amount of data is incresing;therefore there is the necessity to find a way to extract the 16s sequence and assing a taxonomy with a computational method.
+We developed a software that is able to identify the 16s genes inside a reference genome and extract it so afterwords will be possible to assing a taxonomy.
+
+This program works in two steps:
 1. search for the 16s gene in the genomes by automating an nhmmer search
 2. use the nhmmer hits to extract the identified 16s sequence from the genomes.
 
@@ -13,10 +20,11 @@ This program has been designed to work with a specific folder structure (see exa
 - The .hmm file for nhmmer has to be in the **same** directory as the program.
 
 ### Files
+The automated nhmmer step makes use of an Hidden Markov Model file.
 This program comes with two hmm models for the 16s gene, one for Archeal genomes (arc.ssu.rnammer.hmm) and one for Bacterial genomes (bac.ssu.rnammer.hmm). It is possible to work with a user-provided hmm model, but the program as not been tested for this.
 
 ### Programs
-- HMMER 3.3 (http://hmmer.org/)
+- [HMMER (v.3.3.3)](http://hmmer.org/)
 - Python 3.8+
 
 ## Command line instructions
@@ -39,9 +47,14 @@ When launching the program, arguments are used to specify both our program’s p
 - E-value: allows you to run the nhmmer commands with this specified E-value. Must be integer or float with “.” as decimal separator. Defaults to **0.0001**\
 `-e <e-value>` or `--evalue <e-value>`
 	
-	
-## Output
-
-
 ## Testing setup
-The program was tested with a set of 
+Query sequences ~~(since HMMER works also with querys and not only profiles)~~ as hidden markov models(HMM) were obtained from [RNAmmer](http://www.cbs.dtu.dk/services/RNAmmer/).
+
+As a testing dataset, we used 1600 metagenome-assembled genomes originating from multiple anaereobic digesters, imported as FASTA files. `link aLL'ARTICOLO`
+
+## Output
+The software will generate 4 files:
+- `My_16S_genes_< folder >_< query >.Fasta`: it is a multi-fasta file containing all the valid 16S sequences obtained. Each sequence is identified by the code of the scaffold in which has been found and the name of the genome;
+- `My_16S_genes_info_< folder >_ < query >.txt`: it is a tabular file in which are saved the number of 16S genes found per genomes, the length of the sequences, the start and end position of the alignment; 
+- `nhmmer_log_< folder >_< query >.txt`: file containing all the printed out information by the nhmmer software;R
+- `nhmmer_output_< folder >_< query >.txt`: file containing information of the alignment performed by nhmmer, from which the software will save the alignment positions. 
