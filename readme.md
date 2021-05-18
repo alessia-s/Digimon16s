@@ -16,7 +16,7 @@ This program works in two steps:
 
 ## Requirements
 This program has been designed to work with a specific folder structure (see example directory structure.zip): 
-- .fasta/.fna/.fa files in a **subfolder** to the current Working Directory. You are to specify the name of the folder as an argument when launching the program from command line.
+- .fasta/.fna/.fa/.faa files in a **subfolder** to the current Working Directory. You are to specify the name of the folder as an argument when launching the program from command line.
 - The .hmm file for nhmmer has to be in the **same** directory as the program.
 
 ### Files
