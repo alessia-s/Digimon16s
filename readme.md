@@ -18,12 +18,12 @@ This program works in two steps:
 
 ## Requirements
 This program has been designed to work with a specific folder structure (see example directory structure.zip): 
-- .fasta/.fna/.fa/.faa files in a **subfolder** to the current Working Directory. You are to specify the name of the folder as an argument when launching the program from command line.
+- .fasta/.fna/.fa/.faa/.ffn files in a **subfolder** to the current Working Directory. You are to specify the name of the folder as an argument when launching the program from command line.
 - The .hmm file for nhmmer has to be in the **same** directory as the program.
 
 ### Files
 The automated nhmmer step makes use of an Hidden Markov Model file.
-This program comes with two hmm models for the 16s gene, one for Archeal genomes (arc.ssu.rnammer.hmm) and one for Bacterial genomes (bac.ssu.rnammer.hmm). It is possible to work with a user-provided hmm model, but the program as not been tested for this.
+This program comes with two hmm models for the 16s gene, one for Archaeal genomes (arc.ssu.rnammer.hmm) and one for Bacterial genomes (bac.ssu.rnammer.hmm). It is possible to work with a user-provided hmm model, but the program as not been tested for this.
 
 ### Programs
 - [HMMER (v.3.3.3)](http://hmmer.org/)
@@ -57,6 +57,6 @@ As a testing dataset, we used 1628 metagenome-assembled genomes originating from
 ## Output
 The software will generate 4 files:
 - `My_16S_genes_<folder>_<query>.Fasta`: multi-fasta file containing all the valid 16S sequences obtained. Each sequence is identified by the code of the scaffold in which it has been found (with an incremental `_<integer>` suffix in case of multiple alignments on the same scaffold) and the name of the genome;
-- `My_16S_genes_info_<folder>_ <query>.txt`: tabular file which stores the number of 16S genes found per genomes, the length of the sequences, the start and end position of the alignment; 
+- `My_16S_genes_info_<folder>_<query>.txt`: tabular file which stores the number of 16S genes found per genomes, the length of the sequences, the start and end position of the alignment; 
 - `nhmmer_log_<folder>_<query>.txt`: file containing information printed out by the nhmmer command;
 - `nhmmer_output_<folder>_<query>.txt`: file containing information on the alignments performed by nhmmer, from which our program will save the alignment positions. 
