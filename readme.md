@@ -11,7 +11,7 @@ Since much more species are isolated the amount of data is incresing;therefore t
 We developed a software that is able to identify the 16s genes inside a reference genome and extract it so afterwords will be possible to assing a taxonomy.
 
 This program works in two steps:
-1. search for the 16s gene in the genomes by automating an nhmmer search
+1. search for the 16s gene in the genomes by automating an nhmmer search from the HMMER software;
 2. use the nhmmer hits to extract the identified 16s sequence from the genomes.
 
 ## Requirements
@@ -54,7 +54,7 @@ As a testing dataset, we used 1600 metagenome-assembled genomes originating from
 
 ## Output
 The software will generate 4 files:
-- `My_16S_genes_< folder >_< query >.Fasta`: it is a multi-fasta file containing all the valid 16S sequences obtained. Each sequence is identified by the code of the scaffold in which has been found and the name of the genome;
-- `My_16S_genes_info_< folder >_ < query >.txt`: it is a tabular file in which are saved the number of 16S genes found per genomes, the length of the sequences, the start and end position of the alignment; 
-- `nhmmer_log_< folder >_< query >.txt`: file containing all the printed out information by the nhmmer software;R
-- `nhmmer_output_< folder >_< query >.txt`: file containing information of the alignment performed by nhmmer, from which the software will save the alignment positions. 
+- `My_16S_genes_< folder >_< query >.Fasta`: multi-fasta file containing all the valid 16S sequences obtained. Each sequence is identified by the code of the scaffold in which it has been found (with an incremental `_<integer>` suffix in case of multiple alignments on the same scaffold) and the name of the genome;
+- `My_16S_genes_info_< folder >_ < query >.txt`: tabular file which stores the number of 16S genes found per genomes, the length of the sequences, the start and end position of the alignment; 
+- `nhmmer_log_< folder >_< query >.txt`: file containing information printed out by the nhmmer command;
+- `nhmmer_output_< folder >_< query >.txt`: file containing information on the alignments performed by nhmmer, from which our program will save the alignment positions. 
