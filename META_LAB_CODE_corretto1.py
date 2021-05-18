@@ -178,7 +178,7 @@ def get_the_info(start, end, genome_name, info, target):
     
     alignment = target + '\t' + str(abs(int(end)-int(start))) + '\t' + start + '\t'+ end    
    
-    head = genome_name +'\n'+ alignment +'\n'  
+    head = genome_name +'\n'+ alignment  
 
     info = info.append(head)
 
