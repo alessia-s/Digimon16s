@@ -193,7 +193,7 @@ def add_n_hits_to_info(my_16S, info):
         genome_name = match.group(1)
         count = 0
         for val in my_16S:
-            if genome_name in val:
+            if genome_name+'\n' in val:
                 count +=1
         diz[genome_name] = count
         
