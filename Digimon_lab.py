@@ -200,7 +200,7 @@ def get_the_info(start, end, genome_name, info, target):
     
     alignment = target + '\t' + str(abs(int(end)-int(start))) + '\t' + start + '\t'+ end    
    
-    head = genome_name +'\n'+ alignment +'\n'  
+    head = genome_name +'\n'+ alignment  
 
     info = info.append(head)
 
@@ -215,7 +215,7 @@ def add_n_hits_to_info(my_16S, info):
         genome_name = match.group(1)
         count = 0
         for val in my_16S:
-            if genome_name in val:
+            if genome_name+'\n' in val:
                 count +=1
         diz[genome_name] = count
         
