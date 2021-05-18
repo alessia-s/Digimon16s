@@ -20,6 +20,18 @@ This program works in two steps:
 This program has been designed to work with a specific folder structure: 
 - .fasta/.fna/.fa/.faa/.ffn files in a **subfolder** to the working directory. ~For this purpose, you can place your genomes in the 2 empty folders which are provided or you can make your own.~ You are to specify the name of the folder as an argument when launching the program from command line.
 - The .hmm file for nhmmer has to be in the **same** directory as the program.
+```
+Digimon16s-folder
+	|------ <Your genomes folder>
+	|	|------ <your genome file>
+	|	|------ <your genome file>
+	|	|------ ...
+	|
+	|------ bac.ssu.rnammer.hmm
+	|------ arc.ssu.rnammer.hmm
+	|------ <your HMM file> (optional)
+	|------ digimon.py
+```
 
 ### Files
 The automated nhmmer step makes use of an Hidden Markov Model file.
@@ -48,6 +60,10 @@ When launching the program, arguments are used to specify both our program’s p
 `-l <number>` or `--length <number>`
 - E-value: allows you to run the nhmmer commands with this specified E-value. Must be integer or float with “.” as decimal separator. Defaults to **0.0001**\
 `-e <e-value>` or `--evalue <e-value>`
+
+### Example
+`$ ./digimon.py -f MAG_bact -q bac -e 0.01 -l 600` \
+this command will operate on fasta files contained in the subfolder "MAG_bact", with "bac.ssu.rnammer.hmm" as query, "0.01" as E-value for nhmmer command, minimum length of 600 nucleotides for an identified 16s sequence to be considered as valid.
 	
 ## Testing setup
 Query sequences as hidden markov models(HMM) were obtained from [RNAmmer](http://www.cbs.dtu.dk/services/RNAmmer/).
