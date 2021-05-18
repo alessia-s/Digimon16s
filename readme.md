@@ -7,9 +7,9 @@ The project was supervised by Prof. Stefano Campanaro and Dr. Arianna Basile.*
 
 ## IDentIfication of 16s Genes In MicrObial geNomes
 
-The taxonomic assignment is one of the fundamental steps for understanding the microbial community.
+Taxonomic assignment is one of the fundamental steps for understanding the microbial community.
 The 16s genes are highly conserved across species of Archea and Bacteria but this genes also contain nine hypervariable regions that can provide species-specific signature sequence useful for their identification.
-Since much more species are isolated the amount of data is incresing;therefore there is the necessity to find a way to extract the 16s sequence and assing a taxonomy with a computational method.
+Since much more species are isolated the amount of data is incresing; therefore there is the necessity to find a way to extract the 16s sequence and assing a taxonomy with a computational method.
 We developed a software that is able to identify the 16s genes inside a reference genome and extract it so afterwords will be possible to assing a taxonomy.
 
 This program works in two steps:
@@ -17,8 +17,8 @@ This program works in two steps:
 2. use the nhmmer hits to extract the identified 16s sequence from the genomes.
 
 ## Requirements
-This program has been designed to work with a specific folder structure (see example directory structure.zip): 
-- .fasta/.fna/.fa/.faa/.ffn files in a **subfolder** to the current Working Directory. You are to specify the name of the folder as an argument when launching the program from command line.
+This program has been designed to work with a specific folder structure: 
+- .fasta/.fna/.fa/.faa/.ffn files in a **subfolder** to the working directory. For this purpose, you can place your genomes in the 2 empty folders which are provided or you can make your own. You are to specify the name of the folder as an argument when launching the program from command line.
 - The .hmm file for nhmmer has to be in the **same** directory as the program.
 
 ### Files
