@@ -1,4 +1,6 @@
-# DIGIMON16s
+# DIGIMON16s    
+![Senza nome](https://user-images.githubusercontent.com/84088778/118647347-89103f00-b7e1-11eb-87cf-248cc7abf5db.png)
+
 *This code was developed as part of a project carried out during the course of Microbial Metagenomics 
 (Molecular Biology master degree) at the University of Padova. 
 The project was supervised by Prof. Stefano Campanaro and Dr. Arianna Basile.*
