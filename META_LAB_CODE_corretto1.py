@@ -32,7 +32,7 @@ print()
 FNA_list=[]  #crea una lista vuota per i file fna su cui vogliamo lavorare
 for files in sorted(os.listdir(args.folder)):   #uno ad uno i file presenti nella cartella dove cercare gli fna
     #aggiungiamo alla lista dei file solo quelli con estensione fna, nel caso ci siano altri file nella cartella 
-    	if len(str(files))>3 and ((files[-3] + files[-2] + files [-1])=="fna" or (files[-3] + files[-2] + files [-1])=="faa"):
+    	if len(str(files))>3 and ((files[-3] + files[-2] + files [-1])=="fna" or (files[-3] + files[-2] + files [-1])=="faa" or (files[-3] + files[-2] + files [-1])=="fasta" or (files[-3] + files[-2] + files [-1])=="fa"):
             FNA_list.append(files)
 
 processed_files = 0
@@ -229,7 +229,7 @@ for i in range(1,len(result)):
     lines = que.split('\n')
     print(lines[0])
     if len(lines) < 9:
-        print('No matches founded\n')
+        print('No found matches\n')
     else:
         if len(lines) > 9:
             print('There has been found ' + str(len(lines)- 8) + ' matching hits.\n')
