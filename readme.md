@@ -18,7 +18,7 @@ This program works in two steps:
 
 ## Requirements
 This program has been designed to work with a specific folder structure: 
-- .fasta/.fna/.fa/.faa/.ffn files in a **subfolder** to the working directory. ~For this purpose, you can place your genomes in the 2 empty folders which are provided or you can make your own.~ You are to specify the name of the folder as an argument when launching the program from command line.
+- .fasta/.fna/.fa/.faa/.ffn files in a **subfolder** to the working directory. You are to specify the name of the folder as an argument when launching the program from command line.
 - The .hmm file for nhmmer has to be in the **same** directory as the program.
 ```
 Digimon16s-folder
