@@ -50,7 +50,7 @@ When launching the program, arguments are used to specify both our program’s p
 ## Testing setup
 Query sequences ~~(since HMMER works also with querys and not only profiles)~~ as hidden markov models(HMM) were obtained from [RNAmmer](http://www.cbs.dtu.dk/services/RNAmmer/).
 
-As a testing dataset, we used 1600 metagenome-assembled genomes originating from multiple anaereobic digesters, imported as FASTA files. `link aLL'ARTICOLO`
+As a testing dataset, we used 1628 metagenome-assembled genomes originating from multiple anaereobic digesters, imported as FASTA files, taken from _Campanaro S, et al. New insights from the biogas microbiome by comprehensive genome-resolved metagenomics of nearly 1600 species originating from multiple anaerobic digesters. Biotechnol Biofuels. 2020 Feb 24;13:25_
 
 ## Output
 The software will generate 4 files:
