@@ -192,6 +192,7 @@ def get_the_info(start, end, genome_name, info, target):
             t = 2
             jo = ''.join(info[i:len(info)])
             tag = '^' + target +'.*'
+            jo = jo.replace('\t','\n')
             for j in jo.split('\n'):
                 f = re.search(tag, j)
                 if f is not None:
