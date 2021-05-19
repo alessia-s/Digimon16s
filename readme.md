@@ -72,7 +72,7 @@ As a testing dataset, we used 1628 metagenome-assembled genomes originating from
 
 ## Output
 The software will generate 4 files:
-- `My_16S_genes_<folder>_<query>.Fasta`: multi-fasta file containing all the valid 16S sequences obtained. Each sequence is identified by the code of the scaffold in which it has been found (with an incremental `_<integer>` suffix in case of multiple alignments on the same scaffold) and the name of the genome;
+- `My_16S_genes_<folder>_<query>.fasta`: multi-fasta file containing all the valid 16S sequences obtained. Each sequence is identified by the code of the scaffold in which it has been found (with an incremental `_<integer>` suffix in case of multiple alignments on the same scaffold) and the name of the genome;
 - `My_16S_genes_info_<folder>_<query>.txt`: tabular file which stores the number of 16S genes found per genomes, the length of the sequences, the start and end position of the alignment; 
 - `nhmmer_log_<folder>_<query>.txt`: file containing information printed out by the nhmmer command;
 - `nhmmer_output_<folder>_<query>.txt`: file containing information on the alignments performed by nhmmer, from which our program will save the alignment positions. 
