@@ -224,8 +224,8 @@ def add_n_hits_to_info(my_16S, info):
             if genome_name in info[i]:
                 
                 p = info[i].split('\n')
-
-                info[i] = p[0] +'\t' + str(diz[genome_name]) + '\t' + p[1] + '\n'
+                if len(p[1]) > 0:
+                    info[i] = p[0] +'\t' + str(diz[genome_name]) + '\t' + p[1] + '\n'
 
     return info
 
