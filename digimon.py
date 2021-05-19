@@ -184,9 +184,12 @@ def get_the_info(start, end, genome_name, info, target):
     match = re.match(r".*?\/(.*)\.*",genome_name)
     genome_name = match.group(1)
     count=0
-       
+    t = 0 
     for i in range(len(info)):
+        if t == 2:
+            break
         if genome_name in info[i]:
+            t = 2
             jo = ''.join(info[i:len(info)])
             tag = '^' + target +'.*'
             for j in jo.split('\n'):
