@@ -46,15 +46,15 @@ else:
     print("Please, choose a valid query argument")
     quit()
     
-print("\nlooking for FNA files in folder:", args.folder)
+print("\nlooking for fasta files in folder:", args.folder)
 print("Query:", query)
 print("searching for hits longer than:", min_len)
 print("nhmmer E-value =", e_value)
 print()
 
 FNA_list=[]  #crea una lista vuota per i file fna su cui vogliamo lavorare
-for files in sorted(os.listdir(args.folder)):   #uno ad uno i file presenti nella cartella dove cercare gli fna
-    #aggiungiamo alla lista dei file solo quelli con estensione fna, nel caso ci siano altri file nella cartella 
+for files in sorted(os.listdir(args.folder)):   #uno ad uno i file presenti nella cartella dove cercare i fasta
+    #aggiungiamo alla lista dei file solo quelli con estensione corretta, nel caso ci siano altri file nella cartella 
     if os.path.splitext(files)[1] in [".fna", ".fasta", ".fa", ".faa", ".ffn"]:
         FNA_list.append(files)
 if FNA_list == []:
@@ -145,7 +145,7 @@ def save_genes(gene, target, genome_name, my_16S):
 
 def save_in_Fasta(my_16S):
         
-    with open('My_16S_genes_%s_%s.Fasta' %(args.folder, query.replace(".", "")), 'w') as f: 
+    with open('My_16S_genes_%s_%s.fasta' %(args.folder, query.replace(".", "")), 'w') as f: 
         for i in my_16S:
             f.write(i)
 
@@ -251,7 +251,7 @@ for i in range(1,len(result)):
     lines = que.split('\n')
     print(lines[0])
     if len(lines) < 9:
-        print('No matches found\n')
+        print('No match found\n')
     else:
         if len(lines) > 9:
             print(str(len(lines)- 8) + ' matching hits were found.\n')
