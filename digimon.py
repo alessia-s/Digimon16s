@@ -9,7 +9,7 @@ import subprocess
 import argparse
 parser = argparse.ArgumentParser()
 parser.add_argument("-f", "--folder", required=True) #permette di dichiarare la cartella in cui cercare gli fna, come argomento nel terminale
-parser.add_argument("-q", "--query", required=True)     #permette di specificare se si vuole usare la query hmm per batteri o archea
+parser.add_argument("-q", "--query", required=True)  #permette di specificare se si vuole usare la query hmm per batteri o archea
 parser.add_argument("-l", "--length", required=False)
 parser.add_argument("-e", "--evalue", required=False)
 args = parser.parse_args()
@@ -86,7 +86,8 @@ print("Log:", "nhmmer_log_%s_%s.txt" % (args.folder, query.replace(".", "")))
 print()
 
 
-def get_the_gene(start, end, target, file_fasta, strand):
+def get_the_gene(start, end, target, file_fasta, strand): # extract the sequence from the MAG and return it
+
     
     #---------------------------    
     if strand == '-':
@@ -115,11 +116,11 @@ def get_the_gene(start, end, target, file_fasta, strand):
         gene_16S = rev_complement(gene_16S)
         
     if len(gene_16S) < min_len:
-        return 'not long enough'
+        return 'not long enough'  #in case the sequence is too short 
     
     return gene_16S
 
-def save_genes(gene, target, genome_name, my_16S):
+def save_genes(gene, target, genome_name, my_16S): #saves each sequence with the code_scffold and the genome name in a list
     
 
     genome_name = genome_name.partition('.')[0]
@@ -130,7 +131,7 @@ def save_genes(gene, target, genome_name, my_16S):
     for values in my_16S:
         f = re.search(head, values)
         if f is not None:
-            count = count +1
+            count = count +1   #counts how many times a sequences on the same scaffold has been alredy saved  
             
     if count > 0:
         DNA ='>' + target + '_' + str(count) + '+' + genome_name + split_in_70(gene)
@@ -143,7 +144,7 @@ def save_genes(gene, target, genome_name, my_16S):
 
 
 
-def save_in_Fasta(my_16S):
+def save_in_Fasta(my_16S): #writes the list of sequences in a file
         
     with open('My_16S_genes_%s_%s.fasta' %(args.folder, query.replace(".", "")), 'w') as f: 
         for i in my_16S:
@@ -151,7 +152,7 @@ def save_in_Fasta(my_16S):
 
 
 
-def split_in_70(DNA):
+def split_in_70(DNA):   #creates the fromat 70 base for each row 
     if len(DNA) > 0:
         if len(DNA) < 70:
             DNA = DNA + '\n'
@@ -171,14 +172,14 @@ def split_in_70(DNA):
 
 
 
-def rev_complement(seq):
+def rev_complement(seq): #return the reverse-complement of the sequence 
     complement = {'A': 'T', 'C': 'G', 'G': 'C', 'T': 'A'} 
     bases = list(seq) 
     bases = [complement[base] for base in bases[::-1]]
     return ''.join(bases)
 
 
-def get_the_info(start, end, genome_name, info, target):
+def get_the_info(start, end, genome_name, info, target): #saves the info in a list 
 
     genome_name = genome_name.partition('.')[0] 
     match = re.match(r".*?\/(.*)\.*",genome_name)
@@ -188,7 +189,7 @@ def get_the_info(start, end, genome_name, info, target):
     for i in range(len(info)):
         if t == 2:
             break
-        if genome_name in info[i]:
+        if genome_name in info[i]: #controls and counts if there are alredy saved sequences found on the same scaffold
             t = 2
             jo = ''.join(info[i:len(info)])
             tag = '^' + target +'.*'
@@ -199,7 +200,7 @@ def get_the_info(start, end, genome_name, info, target):
                     count = count +1
      
     if count > 0:    
-        target = target +'_' + str(count)
+        target = target +'_' + str(count) #adds '_n' at the scaffold code  
 
     
     alignment = target + '\t' + str(abs(int(end)-int(start))) + '\t' + start + '\t'+ end    
@@ -210,7 +211,7 @@ def get_the_info(start, end, genome_name, info, target):
 
     return info
 
-def add_n_hits_to_info(my_16S, info):
+def add_n_hits_to_info(my_16S, info): #adds the number of valid sequences found in each MAGs 
     
     diz = {}
     
@@ -234,7 +235,7 @@ def add_n_hits_to_info(my_16S, info):
     return info
 
 
-def save_in_info(info):
+def save_in_info(info): # 
     with open('My_16S_genes_%s_%s_info.txt' %(args.folder, query.replace(".", "")), 'w') as f:
         header = 'Genome_name' + '\t'+ 'n_16S_genes' +'\t'+ 'scaffold_code'+'\t'+'length'+'\t'+'start'+'\t'+ 'end' + '\n'
         f.write(header)
