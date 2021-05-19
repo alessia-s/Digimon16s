@@ -120,7 +120,7 @@ def get_the_gene(start, end, target, file_fasta, strand): # extract the sequence
     
     return gene_16S
 
-def save_genes(gene, target, genome_name, my_16S): #saves each sequence with the code_scffold and the genome name in a list
+def save_genes(gene, target, genome_name, my_16S): #saves each sequence with the code scaffold and the MAG name in a list
     
 
     genome_name = genome_name.partition('.')[0]
@@ -152,7 +152,7 @@ def save_in_Fasta(my_16S): #writes the list of sequences in a file
 
 
 
-def split_in_70(DNA):   #creates the fromat 70 base for each row 
+def split_in_70(DNA):   #creates 70 base for each row fromat
     if len(DNA) > 0:
         if len(DNA) < 70:
             DNA = DNA + '\n'
@@ -235,14 +235,14 @@ def add_n_hits_to_info(my_16S, info): #adds the number of valid sequences found 
     return info
 
 
-def save_in_info(info): # 
+def save_in_info(info): # save the info in a output file
     with open('My_16S_genes_%s_%s_info.txt' %(args.folder, query.replace(".", "")), 'w') as f:
         header = 'Genome_name' + '\t'+ 'n_16S_genes' +'\t'+ 'scaffold_code'+'\t'+'length'+'\t'+'start'+'\t'+ 'end' + '\n'
         f.write(header)
         for i in info:
             f.write(i)
 
-x = open("nhmmer_output_%s_%s.txt" % (args.folder, query.replace(".", "")),'r')
+x = open("nhmmer_output_%s_%s.txt" % (args.folder, query.replace(".", "")),'r') # the main part that calls all the other functions
 result = x.read()
 x.close()
 
@@ -266,9 +266,6 @@ for i in range(1,len(result)):
             values = lines[j].split()
             
             fna = str(args.folder + '/' + lines[0])
-
-            hmm_start = values[6]
-            hmm_end = values[7]
             
             ali_start= values[9]
             ali_end= values[10]
