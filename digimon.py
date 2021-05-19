@@ -8,15 +8,15 @@ import os
 import subprocess
 import argparse
 parser = argparse.ArgumentParser()
-parser.add_argument("-f", "--folder", required=True) #permette di dichiarare la cartella in cui cercare gli fna, come argomento nel terminale
-parser.add_argument("-q", "--query", required=True)  #permette di specificare se si vuole usare la query hmm per batteri o archea
+parser.add_argument("-f", "--folder", required=True)
+parser.add_argument("-q", "--query", required=True)
 parser.add_argument("-l", "--length", required=False)
 parser.add_argument("-e", "--evalue", required=False)
 args = parser.parse_args()
 
 
 #*******************************************************************
-if args.length is None:
+if args.length is None:         # default minimum identified sequence length is 0
     min_len = 0
 else: 
     try:
@@ -25,12 +25,12 @@ else:
         print("Minimum length must be an integer")
         quit()
         
-if args.evalue is None:
+if args.evalue is None:         # default e-value is 0.0001
     e_value = "0.0001"
 else:
     try:
-        e_value = float(args.evalue)
-        e_value = str(e_value)
+        e_value = float(args.evalue)    # converts string to float to verify args.evalue is suitable as nhmmer argument. returns ValueError if argument is not a float number 
+        e_value = str(e_value)          # converts float back to string to be passed to run.subprocess()
     except ValueError:
         print("e-value must be a number. \".\" as decimal separator")
         quit()
@@ -40,7 +40,7 @@ if args.query.lower() in ["b", "ba", "bac", "bacteria"]:
     query = "bac.ssu.rnammer.hmm"
 elif args.query.lower() in ["a", "ar", "arc", "archea"]:
     query = "arc.ssu.rnammer.hmm"
-elif os.path.isfile(args.query) == True:
+elif os.path.isfile(args.query) == True:        # query can be user-specified filename 
     query = args.query
 else:
     print("Please, choose a valid query argument")
@@ -52,9 +52,9 @@ print("searching for hits longer than:", min_len)
 print("nhmmer E-value =", e_value)
 print()
 
-FNA_list=[]  #crea una lista vuota per i file fna su cui vogliamo lavorare
-for files in sorted(os.listdir(args.folder)):   #uno ad uno i file presenti nella cartella dove cercare i fasta
-    #aggiungiamo alla lista dei file solo quelli con estensione corretta, nel caso ci siano altri file nella cartella 
+FNA_list=[]
+for files in sorted(os.listdir(args.folder)):
+    
     if os.path.splitext(files)[1] in [".fna", ".fasta", ".fa", ".faa", ".ffn"]:
         FNA_list.append(files)
 if FNA_list == []:
@@ -66,17 +66,18 @@ processed_list = []
 nhmmer_output_list = []
 nhmmer_log=[]
 
+# runs nhmmer for each fasta file in the target folder, storing nhmmer dfamtblout output and main human-readable output from temporary files in lists.
 for i in FNA_list:
     print("processing", args.folder + "/%s" % i)
-    subprocess.run(["nhmmer", "-E", e_value, "-o", "log_temp.txt", "--dfamtblout=OUTPUTTEMP.txt", query , args.folder +"/%s" % i])
+    subprocess.run(["nhmmer", "-E", e_value, "-o", "log_temp.txt", "--dfamtblout=OUTPUTTEMP.txt", query , args.folder +"/%s" % i]) #runs nhmmer with specified e-value, query file and /folder/filename
     processed_files += 1
     processed_list.append(i)
     nhmmer_output_list.append("@" + i +"\n" + open("OUTPUTTEMP.txt", "r").read())
     nhmmer_log.append("@" + i +"\n" + open("log_temp.txt", "r").read())
 
-with open("nhmmer_output_%s_%s.txt" % (args.folder, query.replace(".", "")), "w") as f:
+with open("nhmmer_output_%s_%s.txt" % (args.folder, query.replace(".", "")), "w") as f: # creates nhmmer output file
     print(*nhmmer_output_list, sep="\n", file=f)
-with open("nhmmer_log_%s_%s.txt" % (args.folder, query.replace(".", "")), "w") as f:
+with open("nhmmer_log_%s_%s.txt" % (args.folder, query.replace(".", "")), "w") as f: # creates nhmmer log file
     print(*nhmmer_log, sep="\n", file=f)
 os.remove("OUTPUTTEMP.txt")
 os.remove("log_temp.txt")
