@@ -34,7 +34,7 @@ Digimon16s-folder
 
 ### Files
 The automated nhmmer step makes use of two Hidden Markov Model files, one for Bacteria and one for Archaea.
-This program comes with two hmm models for the 16S gene, one for Archaeal genomes (arc.ssu.rnammer.hmm) and one for Bacterial genomes (bac.ssu.rnammer.hmm) obtained from ......... It is possible to work with a user-provided hmm model, but the program as not been tested for this.
+This program comes with two hmm models for the 16S gene, one for Archaeal genomes (arc.ssu.rnammer.hmm) and one for Bacterial genomes (bac.ssu.rnammer.hmm) obtained from [RNAmmer](http://www.cbs.dtu.dk/services/RNAmmer/). It is possible to work with a user-provided hmm model, but the program as not been tested for this.
 
 ### Programs
 - [HMMER (v.3.3.3)](http://hmmer.org/)
