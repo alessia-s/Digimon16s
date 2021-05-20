@@ -87,7 +87,7 @@ print("Log:", "nhmmer_log_%s_%s.txt" % (args.folder, query.replace(".", "")))
 print()
 
 
-def get_the_gene(start, end, target, file_fasta, strand): # extract the sequence from the MAG and return it
+def get_the_gene(start, end, target, file_fasta, strand): # extracts the sequence from the MAG and return it
 
     
     #---------------------------    
@@ -121,7 +121,7 @@ def get_the_gene(start, end, target, file_fasta, strand): # extract the sequence
     
     return gene_16S
 
-def save_genes(gene, target, genome_name, my_16S): #saves each sequence with the code scaffold and the MAG name in a list
+def save_genes(gene, target, genome_name, my_16S): #saves each sequence in a list with the code scaffold and the MAG name
     
 
     genome_name = genome_name.partition('.')[0]
@@ -132,7 +132,7 @@ def save_genes(gene, target, genome_name, my_16S): #saves each sequence with the
     for values in my_16S:
         f = re.search(head, values)
         if f is not None:
-            count = count +1   #counts how many times a sequences on the same scaffold has been alredy saved  
+            count = count +1   #counts how many times sequences on the same scaffold has been already saved  
             
     if count > 0:
         DNA ='>' + target + '_' + str(count) + '+' + genome_name + split_in_70(gene)
@@ -153,7 +153,7 @@ def save_in_Fasta(my_16S): #writes the list of sequences in a file
 
 
 
-def split_in_70(DNA):   #creates 70 base for each row fromat
+def split_in_70(DNA):   #creates 70 base for each row
     if len(DNA) > 0:
         if len(DNA) < 70:
             DNA = DNA + '\n'
@@ -173,7 +173,7 @@ def split_in_70(DNA):   #creates 70 base for each row fromat
 
 
 
-def rev_complement(seq): #return the reverse-complement of the sequence 
+def rev_complement(seq): #returns the reverse-complement of the sequence 
     complement = {'A': 'T', 'C': 'G', 'G': 'C', 'T': 'A'} 
     bases = list(seq) 
     bases = [complement[base] for base in bases[::-1]]
@@ -190,7 +190,7 @@ def get_the_info(start, end, genome_name, info, target): #saves the info in a li
     for i in range(len(info)):
         if t == 2:
             break
-        if genome_name in info[i]: #controls and counts if there are alredy saved sequences found on the same scaffold
+        if genome_name in info[i]: #controls and counts if there are already saved sequences found on the same scaffold
             t = 2
             jo = ''.join(info[i:len(info)])
             tag = '^' + target +'.*'
@@ -236,7 +236,7 @@ def add_n_hits_to_info(my_16S, info): #adds the number of valid sequences found 
     return info
 
 
-def save_in_info(info): # save the info in a output file
+def save_in_info(info): # saves the info in a output file
     with open('My_16S_genes_%s_%s_info.txt' %(args.folder, query.replace(".", "")), 'w') as f:
         header = 'Genome_name' + '\t'+ 'n_16S_genes' +'\t'+ 'scaffold_code'+'\t'+'length'+'\t'+'start'+'\t'+ 'end' + '\n'
         f.write(header)
