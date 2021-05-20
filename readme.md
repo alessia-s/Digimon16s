@@ -4,7 +4,6 @@
 *This code was developed by Anna Corrà, Davide Santinello and Alessia Strapazzon as part of a project carried out during the course of Microbial Metagenomics 
 (Molecular Biology master degree) at the University of Padova under the supervision of Prof. Stefano Campanaro and Dr. Arianna Basile.*
 
-Project still under active development, use at your own risk.
 
 ## IDentIfication of 16s Genes In MicrObial geNomes
 
