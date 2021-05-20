@@ -34,7 +34,7 @@ Digimon16s-folder
 
 ### Files
 The automated nhmmer step makes use of two Hidden Markov Model files, one for Bacteria and one for Archaea.
-This program comes with two hmm models for the 16S gene, one for Archaeal genomes (arc.ssu.rnammer.hmm) and one for Bacterial genomes (bac.ssu.rnammer.hmm) obtained from [RNAmmer](http://www.cbs.dtu.dk/services/RNAmmer/). It is possible to work with a user-provided hmm model, but the program as not been tested for this.
+This program comes with two hmm models for the 16S gene, one for Archaeal genomes (arc.ssu.rnammer.hmm) and one for Bacterial genomes (bac.ssu.rnammer.hmm) obtained from [RNAmmer](http://www.cbs.dtu.dk/services/RNAmmer/). It is possible to work with a user-provided hmm model, but the program has not been tested for this.
 
 ### Programs
 - [HMMER (v.3.3.3)](http://hmmer.org/)
@@ -42,7 +42,7 @@ This program comes with two hmm models for the 16S gene, one for Archaeal genome
 
 ## Command line instructions
 ### Launching the program
-The program is provided as a .py file. It is needed to provide appropriate permissions to .py file properties to allow the file to run as a program.
+The program is provided as a .py file. Change the permissions to the .py file to allow the executability of the script `chmod u+x ./digimon.py`.
 To launch the script, open a terminal session in the directory where the program is located and enter the command `./digimon.py`.
 ### Arguments
 When launching the script, arguments are used to specify both the program parameters, and to be passed to the automated nhmmer command.
